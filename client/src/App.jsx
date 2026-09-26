@@ -25,7 +25,7 @@ function App() {
     }
 
     try {
-      const response = await fetch("http://localhost:5000/api/tickets", {
+      const response = await fetch("https://support-crm-production-6214.up.railway.app/api/tickets", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -55,7 +55,7 @@ function App() {
       setStatus("");
 
       const ticketsResponse = await fetch(
-        "http://localhost:5000/api/tickets"
+        "https://support-crm-production-6214.up.railway.app/api/tickets"
       );
 
       const ticketsData = await ticketsResponse.json();
@@ -79,7 +79,7 @@ function App() {
 
   try {
     const response = await fetch(
-      `http://localhost:5000/api/tickets/${selectedTicket.ticket_id}`,
+      `https://support-crm-production-6214.up.railway.app/api/tickets/${selectedTicket.ticket_id}`,
       {
         method: "DELETE",
       }
@@ -112,7 +112,7 @@ function App() {
     setLoading(true);
     setError("");
 
-    const url = `http://localhost:5000/api/tickets?search=${encodeURIComponent(
+    const url = `https://support-crm-production-6214.up.railway.app/api/tickets?search=${encodeURIComponent(
       search
     )}&status=${encodeURIComponent(status)}`;
 
@@ -136,7 +136,7 @@ function App() {
       return;
     }
 
-    fetch(`http://localhost:5000/api/tickets/${selectedTicketId}`)
+    fetch(`https://support-crm-production-6214.up.railway.app/api/tickets/${selectedTicketId}`)
       .then((response) => response.json())
       .then((data) => {
         setSelectedTicket(data);
@@ -251,7 +251,7 @@ function App() {
                     onClick={async () => {
                       try {
                         const response = await fetch(
-                          `http://localhost:5000/api/tickets/${selectedTicket.ticket_id}`,
+                          `https://support-crm-production-6214.up.railway.app/api/tickets/${selectedTicket.ticket_id}`,
                           {
                             method: "PUT",
                             headers: {
@@ -345,7 +345,7 @@ function App() {
                         setAddingNote(true);
 
                         const response = await fetch(
-                          `http://localhost:5000/api/tickets/${selectedTicket.ticket_id}/notes`,
+                          `https://support-crm-production-6214.up.railway.app/api/tickets/${selectedTicket.ticket_id}/notes`,
                           {
                             method: "POST",
                             headers: {
@@ -365,7 +365,7 @@ function App() {
                         }
 
                         const ticketResponse = await fetch(
-                          `http://localhost:5000/api/tickets/${selectedTicket.ticket_id}`
+                          `https://support-crm-production-6214.up.railway.app/api/tickets/${selectedTicket.ticket_id}`
                         );
 
                         const updatedTicket = await ticketResponse.json();
